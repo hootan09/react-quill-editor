@@ -5,6 +5,11 @@ import 'react-quill/dist/quill.snow.css';//for snow theme
 import 'react-quill/dist/quill.bubble.css'; //for bubble theme
 import './App.css';
 
+const Quill = ReactQuill.Quill;
+var Font = Quill.import("formats/font");
+Font.whitelist = ["Roboto", "Vazir", "Vazir-Bold"];
+Quill.register(Font, true);
+
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -54,7 +59,7 @@ class App extends React.Component {
  */
 App.modules = {
   toolbar: [
-    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+    [{ 'header': '1'}, {'header': '2'}, { 'font': Font.whitelist }],
     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [{ 'direction': 'rtl' }] ,

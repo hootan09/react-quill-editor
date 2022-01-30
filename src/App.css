@@ -35,3 +35,37 @@ body {
   margin-top: 0.5em;
   font-size: small;
 }
+
+
+.ql-picker.ql-font .ql-picker-label[data-value="Roboto"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Roboto"]::before
+{
+    font-family: "Roboto", cursive;;
+    content: "Roboto" !important;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="Vazir"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Vazir"]::before
+{
+    font-family: "Vazir", cursive;
+    font-weight: 300;
+    content: "Vazir" !important;
+}
+
+.ql-font-Vazir {
+  font-family: "Vazir";
+  font-weight: 300;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="Vazir-Bold"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Vazir-Bold"]::before
+{
+    font-family: "Vazir", cursive;
+    font-weight: 800;
+    content: "Vazir-Bold" !important;
+}
+
+.ql-font-Vazir-Bold {
+  font-family: "Vazir";
+  font-weight: 800;
+}
