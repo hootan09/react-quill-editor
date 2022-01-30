@@ -31,6 +31,7 @@ class App extends React.Component {
           modules={App.modules}
           formats={App.formats}
           // bounds={'.app'}
+          readOnly={this.props.readOnly}
           placeholder={this.props.placeholder}
          />
         <div className="themeSwitcher">
@@ -92,6 +93,7 @@ App.formats = [
  */
 App.propTypes = {
   placeholder: PropTypes.string,
+  readOnly: PropTypes.bool,
 }
 
 /* 
@@ -99,6 +101,7 @@ App.propTypes = {
  */
 App.defaultProps = {
   placeholder: 'Write something...',
+  readOnly: false
 };
 
 
