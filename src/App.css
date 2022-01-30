@@ -37,6 +37,12 @@ body {
 }
 
 
+.ql-container.ql-snow {
+  height: 500px;
+  overflow: scroll;
+}
+
+
 .ql-picker.ql-font .ql-picker-label[data-value="Roboto"]::before, 
 .ql-picker.ql-font .ql-picker-item[data-value="Roboto"]::before
 {
