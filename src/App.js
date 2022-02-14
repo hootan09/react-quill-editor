@@ -5,10 +5,17 @@ import 'react-quill/dist/quill.snow.css';//for snow theme
 import 'react-quill/dist/quill.bubble.css'; //for bubble theme
 import './App.css';
 
+// #1 import quill-image-uploader
+import ImageUploader from "quill-image-uploader";
+
+
 const Quill = ReactQuill.Quill;
 var Font = Quill.import("formats/font");
 Font.whitelist = ["Roboto", "Vazir", "Vazir-Bold"];
 Quill.register(Font, true);
+
+// #2 register module
+Quill.register("modules/imageUploader", ImageUploader);
 
 class App extends React.Component {
   constructor (props) {
@@ -75,6 +82,31 @@ App.modules = {
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
     matchVisual: false,
+  },
+  imageUploader: {
+    upload: file => {
+      return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch(
+          "https://api.imgbb.com/1/upload?key=d36eb6591370ae7f9089d85875e56b22",
+          {
+            method: "POST",
+            body: formData
+          }
+        )
+          .then(response => response.json())
+          .then(result => {
+            console.log(result);
+            resolve(result.data.url);
+          })
+          .catch(error => {
+            reject("Upload failed");
+            console.error("Error:", error);
+          });
+      });
+    }
   }
 }
 /* 
